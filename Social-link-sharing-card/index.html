@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Poppins:wght@700&display=swap"
+    rel="stylesheet">
+
+  <title>Frontend Mentor | Social links profile</title>
+  <style>
+    body {
+      background: #141414;
+      min-height: 96vh;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body,
+    .card,
+    ul,
+    li,
+    header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .card {
+      background: #1f1f1f;
+      height: 26rem;
+      width: 20rem;
+      border-radius: 10px;
+    }
+
+    img {
+      border-radius: 50%;
+      height: 5rem;
+    }
+
+    header {
+      font-weight: 600;
+    }
+
+    h4 {
+      color: #ffffff;
+      margin: 10px 0 0;
+      font-size: 1.25rem;
+    }
+
+    p {
+      color: #c8e26e;
+      font-size: .75rem;
+    }
+
+    .card>p {
+      color: #ffffff;
+      font-size: 10px;
+      margin-bottom: .75rem;
+    }
+
+    ul {
+      gap: 10px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      height: 30px;
+      width: 200px;
+      border-radius: 5px;
+      font-weight: 600;
+      font-size: .75rem;
+      background: #333333;
+      color: #ffffff;
+    }
+
+    li:hover,
+    li:focus {
+      background: #c4f82a;
+      color: #304704;
+      outline: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <img src="./assets/images/avatar-jessica.jpeg" alt="profile-image">
+    <header>
+      <h4>Jessica Randall</h4>
+      <p>London, United Kingdom</p>
+    </header>
+    <p>"Front-end developer and avid reader."</p>
+    <ul>
+      <li tabindex="0">GitHub</li>
+      <li tabindex="0">Frontend Mentor</li>
+      <li tabindex="0">LinkedIn</li>
+      <li tabindex="0">Twitter</li>
+      <li tabindex="0">Instagram</li>
+    </ul>
+  </div>
+</body>
+
+</html>
