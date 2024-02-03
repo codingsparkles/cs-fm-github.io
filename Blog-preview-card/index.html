@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Blog preview card</title>
+  <style>
+    @font-face {
+      font-family: 'Figtree', sans-serif;
+      src: url(./assets/fonts/Figtree-VariableFont_wght.ttf);
+    }
+    :root{
+      --primary-color: hsl(47,88%,63%);
+    }
+
+    body{
+      background: var(--primary-color);
+      min-height: 96vh;
+      display: grid;
+      place-items: center;
+      font-family: 'Figtree', sans-serif;
+    }
+
+    main {
+      width: 20rem;
+      height: 25rem;
+      border-radius: 15px;
+      background: hsl(0,0%, 100%);
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      border: 1px solid #000;
+      box-shadow: 5px 5px;
+    }
+    img {
+      border-radius: 10px;
+    }
+
+    .tag {
+      background: var(--primary-color);
+      padding: .5rem;
+      width: max-content;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 12px;
+    }
+
+    .time {
+      font-size: 10px;
+      font-weight: 600;
+    }
+    h1 {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    p {
+      font-size: 12px;
+      margin: 0;
+    }
+
+    .publisher {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .profile {
+      height: 50px;
+      width: 50px;
+    }
+
+    .name {
+      font-size: 12px;
+      font-weight: bold;
+      color: hsl(0, 0%, 7%);
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <img src="./assets//images/illustration-article.svg" alt="thumbnail-image">
+    <div class="tag">Learning</div>
+    <div class="time">Published 21 Dec 2023</div>
+    <h1>HTML & CSS foundations</h1>
+    <p>These languages are the backbone of every website, defining structure, content, and presentation.</p>
+    <div class="publisher">
+      <img src="./assets//images/image-avatar.webp" alt="profile-image">
+      <div class="name">Greg Hooper</div>
+    </div>
+  </main>
+</body>
+
+</html>
