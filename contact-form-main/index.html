@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Contact form</title>
+
+  <style>
+    @font-face {
+      font-family: "Karla", sans-serif;
+      src: url(./assets/fonts/Karla-VariableFont_wght.ttf);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: "Karla", sans-serif;
+    }
+
+    body {
+      background: #E0F1E7;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    form {
+      background: #FFFFFF;
+      padding: 1.5rem;
+      border-radius: .5rem;
+      gap: .25rem
+    }
+
+    h1 {
+      color: #293E3F;
+      margin-bottom: .5rem;
+    }
+
+    form,
+    .form-group,
+    .form-wrapper,
+    .inner-form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .inner-form-group {
+      column-gap: .5rem;
+    }
+
+    .name-group,
+    .query-type-group {
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: .75rem;
+    }
+
+    .concern-group .inner-form-group {
+      flex-direction: row;
+      align-items: center;
+      flex-wrap: nowrap;
+    }
+
+    .query-type-group .inner-form-group {
+      flex-direction: row;
+      align-items: center;
+      border: 1px solid #959B99;
+      border-radius: 6px;
+      padding: .25rem .5rem;
+      gap: .5rem
+    }
+
+    .query-type-group .inner-form-group,
+    .name-group .inner-form-group {
+      flex: auto;
+    }
+
+    input {
+      padding: 0 .5rem;
+    }
+
+    input,
+    button {
+      height: 2rem;
+      border-radius: 6px;
+      border: 1px solid #959B99;
+    }
+
+    input:focus {
+      outline: 1px solid #0C7D69;
+    }
+
+    input[type='checkbox']:focus,
+    input[type='radio']:focus {
+      outline: none;
+    }
+
+    input[type='checkbox'] {
+      height: 1rem;
+      padding: 0;
+    }
+
+    input[type='checkbox'],
+    input[type='radio'] {
+      accent-color: #007C5E;
+    }
+
+    label {
+      font-size: .75rem;
+      margin-bottom: .5rem;
+    }
+
+    .query-type-group .inner-form-group label,
+    .concern-group label {
+      margin-bottom: 0;
+    }
+
+    label span {
+      color: #7FA99B;
+    }
+
+    #message {
+      height: 4rem;
+    }
+
+    button {
+      background: #0C7D69;
+      color: #CBEAE8;
+    }
+
+    .error-group input,
+    .error-group .query-type-group .inner-form-group {
+      border: 1px solid red
+    }
+
+    .error {
+      visibility: hidden;
+      margin-top: .25rem;
+    }
+
+    .error-group .error {
+      visibility: visible;
+      color: red;
+    }
+
+    .success-banner {
+      height: 50px;
+      width: 250px;
+      background: #2A4244;
+      color: #718786;
+      border-radius: .5rem;
+      padding: 1rem;
+      display: none;
+    }
+
+    .success-banner.success {
+      display: block;
+    }
+
+    .success-banner .title-wrapper {
+      color: #F3FDFF;
+      font-size: 14px;
+      display: flex;
+      gap: .5rem;
+      margin-bottom: .5rem;
+    }
+
+    .success-banner .subtitle {
+      color: #718786;
+      font-size: 12px;
+    }
+
+    img {
+      height: 16px;
+      width: 16px;
+    }
+  </style>
+  </style>
+</head>
+
+<body>
+  <div class="success-banner">
+    <div class="title-wrapper">
+      <img src="assets/images/icon-success-check.svg" alt="success"></img>
+      <span>Message Sent!</span>
+    </div>
+    <div class="subtitle">
+      Thanks for completing the form. We'll be in touch soon!
+    </div>
+  </div>
+  <form onsubmit="formSubmit(this);return false">
+    <h1>Contact Us</h1>
+    <div class="form-group name-group">
+      <div class="inner-form-group">
+        <label for="fname">First name <span>*</span></label>
+        <input type="text" id="fname" name="fname" required>
+        <label class="error">This field is required</label>
+      </div>
+      <div class="inner-form-group">
+        <label for="lname">Last name <span>*</span></label>
+        <input type="text" id="lname" name="lname" required>
+        <label class="error">This field is required</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">Email Address <span>*</span></label>
+      <input type="email" id="email" name="email" required>
+      <label class="error">Please enter a valid email address</label>
+    </div>
+    <div class="form-wrapper">
+      <label>Query Type <span>*</span></label>
+      <div class="form-group query-type-group">
+        <div class="inner-form-group">
+          <input type="radio" id="general" name="query-type" onchange="changeColor()" required>
+          <label for="general">General Enquiry</label>
+        </div>
+        <div class="inner-form-group">
+          <input type="radio" id="support" name="query-type" onchange="changeColor()" required>
+          <label for="support">Support Request</label>
+        </div>
+      </div>
+      <label class="error">Please select a query type</label>
+    </div>
+    <div class="form-group">
+      <label for="message">Message <span>*</span></label>
+      <input type="text" id="message" name="message" required>
+      <label class="error">This field is required</label>
+    </div>
+    <div class="form-group concern-group">
+      <div class="inner-form-group">
+        <input type="checkbox" id="consent" name="consent" required>
+        <label for="consent">I consent to being contacted by the team<span>*</span></label>
+      </div>
+      <label class="error">To submit this form, please consent to being contacted</label>
+    </div>
+    <div class="form-group">
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+  <script>
+    function changeColor() {
+      const radioButtons = document.querySelectorAll("input[name='query-type']");
+      radioButtons.forEach(function (input) {
+        if (input.checked) {
+          input.parentElement.style.background = "#E0F1E7"
+        } else {
+          input.parentElement.style.background = "#0000"
+        }
+      });
+    };
+
+    document.addEventListener("DOMContentLoaded", function () {
+      var elements = document.getElementsByTagName("INPUT");
+      for (var i = 0; i < elements.length; i++) {
+        elements[i].oninvalid = function (e) {
+          e.preventDefault();
+          if (e.target.name === "query-type") {
+            return e.target.closest(".form-wrapper").classList.add("error-group");
+          }
+          e.target.closest(".form-group").classList.add("error-group");
+        };
+        elements[i].oninput = function (e) {
+          if (e.target.name === "query-type") {
+            return e.target.closest(".form-wrapper").classList.remove("error-group");
+          }
+          e.target.closest(".form-group").classList.remove("error-group");
+        };
+      }
+    })
+
+    function formSubmit(event) {
+      document.querySelector('.success-banner').classList.add('success')
+      return false;
+    }
+  </script>
+</body>
+
+</html>
