@@ -23,24 +23,11 @@
     body {
       background: #E0F1E7;
       min-height: 100vh;
-      display: flex;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
     }
 
-    form {
-      background: #FFFFFF;
-      padding: 1.5rem;
-      border-radius: .5rem;
-      gap: .25rem
-    }
-
-    h1 {
-      color: #293E3F;
-      margin-bottom: .5rem;
-    }
-
+    body,
     form,
     .form-group,
     .form-wrapper,
@@ -49,35 +36,47 @@
       flex-direction: column;
     }
 
+    form {
+      background: #FFFFFF;
+      padding: 1.5rem;
+      border-radius: .5rem;
+      gap: .75rem
+    }
+
+    h1 {
+      color: #293E3F;
+      margin-bottom: .5rem;
+    }
+
     .inner-form-group {
       column-gap: .5rem;
     }
 
     .name-group,
-    .query-type-group {
+    .query-type-group,
+    :is(.query-type-group, .concern-group) .inner-form-group {
       flex-direction: row;
-      flex-wrap: wrap;
       align-items: center;
+    }
+
+    .name-group,
+    .query-type-group {
+      flex-wrap: wrap;
       gap: .75rem;
     }
 
     .concern-group .inner-form-group {
-      flex-direction: row;
-      align-items: center;
       flex-wrap: nowrap;
     }
 
     .query-type-group .inner-form-group {
-      flex-direction: row;
-      align-items: center;
       border: 1px solid #959B99;
       border-radius: 6px;
       padding: .25rem .5rem;
       gap: .5rem
     }
 
-    .query-type-group .inner-form-group,
-    .name-group .inner-form-group {
+    :is(.query-type-group, .name-group) .inner-form-group {
       flex: auto;
     }
 
@@ -96,8 +95,7 @@
       outline: 1px solid #0C7D69;
     }
 
-    input[type='checkbox']:focus,
-    input[type='radio']:focus {
+    :is(input[type='checkbox'], input[type='radio'], button):focus {
       outline: none;
     }
 
@@ -112,7 +110,7 @@
     }
 
     label {
-      font-size: .75rem;
+      font-size: 1rem;
       margin-bottom: .5rem;
     }
 
@@ -140,12 +138,12 @@
     }
 
     .error {
-      visibility: hidden;
-      margin-top: .25rem;
+      display: none;
+      margin-top: .5rem;
     }
 
     .error-group .error {
-      visibility: visible;
+      display: block;
       color: red;
     }
 
@@ -180,7 +178,6 @@
       height: 16px;
       width: 16px;
     }
-  </style>
   </style>
 </head>
 
